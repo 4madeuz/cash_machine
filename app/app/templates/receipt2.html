@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чек</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+
+        #container {
+            width: 50%;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        h1, h2 {
+            text-align: center;
+            color: #4285f4;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 20px;
+        }
+
+        .company-info {
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        p {
+            text-align: right;
+            font-weight: bold;
+            margin-top: 20px;
+            font-size: 18px;
+        }
+
+        #footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <h1>Чек</h1>
+
+        <div class="company-info">
+            <h2>Компания</h2>
+            <p>Адрес: г. Город, ул. Улица, д. 1</p>
+            <p>Телефон: +7 (123) 456-7890</p>
+            <p>ИНН: 123456789</p>
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Товар</th>
+                    <th>Количество</th>
+                    <th>Цена за единицу</th>
+                    <th>Общая стоимость</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in items %}
+                    <tr>
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.quantity }}</td>
+                        <td>{{ item.price }}</td>
+                        <td>{{ item.items_price }}</td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <p>Итоговая сумма: {{ total_price }}</p>
+        <p>Время: {{ timestamp }}</p>
+
+        <div id="footer">
+            <p>Спасибо за покупки!</p>
+        </div>
+    </div>
+</body>
+</html>
